@@ -80,6 +80,8 @@ var parser = new htmlparser.Parser({
 		if (name == "div")
 		{
 			
+
+			// !!!! order of these if statement matters, this is the order they should be removed
 			if(divStack.length - 1 == highlightIndex)
 			{
 				highlightIndex = -1;
@@ -123,14 +125,14 @@ while(line != null){
 
     if (obtainPreTagFlag == true)
     {
-    	tmp += line + '\n';
+    	tmp += line + '\n'; 
     }
     else
     {
     	if(tmp != '<pre>' + '\n')
     	{
     		console.log("topic: " + divStack[topicIndex] + " section: " + divStack[sectionIndex] + " subsection: " + divStack[subSectionIndex]);
-    		console.log(tmp + '\n');
+    		console.log(tmp + '\n'); // you can do additional formatting and write to file from here
     	}
     	
     	tmp = '<pre>' + '\n';
